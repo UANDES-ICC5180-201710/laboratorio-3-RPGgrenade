@@ -15,6 +15,11 @@
   <%= @course.teacher %>
 </p>
 
+<p>
+  <strong>Quota:</strong>
+  <%= @course.quota %>
+</p>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
 
@@ -44,6 +49,10 @@
       </tr>
     <% end %>
   </tbody>
+
 </table>
+<%= student = select("enrollment","person_id", Person.all.collect{|p| [p.to_s, p.id]},{ include_blank: true}) %>
+
+<br>
 
 <%= link_to 'New Enrollment', new_enrollment_path %>

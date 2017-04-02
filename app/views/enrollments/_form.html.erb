@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :course_id %>
-    <%= f.text_field :course_id %>
+    <%= f.select :course_id , options_for_select(Course.all.map{|s|[s.to_s, s.id]}) %>
   </div>
 
   <div class="actions">
